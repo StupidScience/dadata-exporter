@@ -14,7 +14,7 @@ Exporter configurates via environment variables:
 |DADATA_TOKEN|Authorization token for access to Dadata API|
 |DADATA_X_SECRET|X-Secret header for access to Dadata Api|
 
-Exporter listen on tcp-port 9501. Metrics available on `/metrics` path.
+Exporter listen on tcp-port **9501**. Metrics available on `/metrics` path.
 
 ## Exposed metrics
 
@@ -24,3 +24,16 @@ Exporter listen on tcp-port 9501. Metrics available on `/metrics` path.
 |dadata_services_clean_total|Clean count for today|
 |dadata_services_merging_total|Merging count for today|
 |dadata_services_suggestions_total|Suggestions count for today|
+
+## Run via Docker
+
+The latest release is automatically published to the [Docker registry](https://hub.docker.com/r/stupidscience/nodeping-exporter).
+
+You can run it like this:
+```
+$ docker run -d --name dadata-exporter \
+            -e DADATA_TOKEN=12345abcdef \
+            -e DADATA_X_SECRET=12345abcdef \
+            -p 9501:9501 \
+            stupidscience/dadata-exporter
+```
